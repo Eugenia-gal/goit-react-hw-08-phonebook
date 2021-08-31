@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/phonebook/phonebook-slices';
+import { addContact } from 'redux/phonebook/phonebook-operations';
 import CustomForm from './Form.styled';
 
 export default function Form() {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Loader from 'react-loader-spinner';
-import { deleteContact } from 'redux/phonebook/phonebook-slices';
+import { deleteContact } from 'redux/phonebook/phonebook-operations';
 import ListContactEl from './ContactItem.styled';
 
 function ContactItem({ contact }) {
