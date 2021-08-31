@@ -9,9 +9,9 @@ export default function AppBar() {
   //   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <CustomHeader>
-      {/* <NavMenu /> */}
-      {/* <UserMenu /> */}
+      <NavMenu />
       <AuthMenu />
+      <UserMenu />
     </CustomHeader>
   );
 }

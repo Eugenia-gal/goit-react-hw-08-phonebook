@@ -7,5 +7,5 @@ export const CustomContainer = styled.div`
 
 export const UserInvitation = styled.span`
   font-weight: 700;
-  margin-right: 12;
+  margin-right: 12px;
 `;

@@ -1,5 +1,4 @@
 // import { CustomNavLink } from './NavMenu.styled';
-import { NavLink } from 'react-router-dom';
 import { CustomNavLink } from './NavMenu.styled';
 
 const NavMenu = () => {
