@@ -6,9 +6,9 @@ import Filter from 'Components/Filter';
 function ContactsView() {
   return (
     <>
-      <h1>Phonebook</h1>
+      <h1>Телефонная книга</h1>
       <Form />
-      <h2>Contacts</h2>
+      <h2>Контакты</h2>
       <Filter />
       <ContactList />
     </>
