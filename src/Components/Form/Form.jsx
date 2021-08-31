@@ -33,7 +33,7 @@ export default function Form() {
 
   return (
     <CustomForm onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
+      <label htmlFor="name">Имя</label>
       <input
         type="text"
         name="name"
@@ -44,7 +44,7 @@ export default function Form() {
         value={name}
         onChange={handleChange}
       />
-      <label htmlFor="number">Phone</label>
+      <label htmlFor="number">Телефон</label>
 
       <input
         type="text"
@@ -56,7 +56,7 @@ export default function Form() {
         value={number}
         onChange={handleChange}
       />
-      <button type="submit">Add Contact</button>
+      <button type="submit">Сохранить контакт</button>
     </CustomForm>
   );
 }

@@ -1,12 +1,11 @@
-// import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
 import Container from 'Components/Container';
 import AppBar from 'Components/AppBar/AppBar';
 import { Switch, Route } from 'react-router-dom';
-import RegisterView from 'Views/RegisterView';
-import LoginView from 'Views/LoginView';
-import ContactsView from 'Views/ContactsView';
+import RegisterView from 'Views/RegisterView/RegisterView';
+import LoginView from 'Views/LoginView/LoginView';
+import ContactsView from 'Views/ContactsView/ContactsView';
 
 function App() {
   return (
@@ -43,10 +42,3 @@ function App() {
 }
 
 export default App;
-
-//  <h1>Phonebook</h1>
-//       <Form />
-//       <h2>Contacts</h2>
-//       <Filter />
-//       <ContactList />
-//       <Toaster />

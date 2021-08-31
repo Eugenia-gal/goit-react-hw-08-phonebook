@@ -21,7 +21,7 @@ function ContactItem({ contact }) {
         {isDeleting ? (
           <Loader type="Bars" color="#000000" height={12} width={12} />
         ) : (
-          'Delete'
+          'Удалить'
         )}
       </button>
     </ListContactEl>

@@ -15,7 +15,7 @@ export default function Filter() {
   return (
     <FilterContainer>
       <label>
-        Find contact by name
+        НАйти контакт по имени
         <input
           id={customId}
           value={value}
