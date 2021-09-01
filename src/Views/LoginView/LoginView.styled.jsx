@@ -13,5 +13,8 @@ export const LoginField = styled.label`
 `;
 
 export const LoginContainer = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+  padding: 20px;
 `;

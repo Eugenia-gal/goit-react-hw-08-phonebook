@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/Authorization/auth-operations';
 import { CustomForm, LoginField, LoginContainer } from './LoginView.styled';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 function LoginView() {
   const dispatch = useDispatch();
@@ -25,15 +27,16 @@ function LoginView() {
     setEmail('');
     setPassword('');
   };
+  const handleClick = () => {};
 
   return (
-    <LoginContainer>
-      <h1>Вход в личный кабинет пользователя</h1>
-
-      <CustomForm
+    <>
+      <LoginContainer>
+        {/* <CustomForm
         onSubmit={handleSubmit}
         // autoComplete="off"
       >
+        <h2>Вход в личный кабинет пользователя</h2>
         <LoginField>
           Почта
           <input
@@ -55,8 +58,42 @@ function LoginView() {
         </LoginField>
 
         <button type="submit">Войти</button>
-      </CustomForm>
-    </LoginContainer>
+      </CustomForm> */}
+        <Form onSubmit={handleSubmit}>
+          <h2>Вход в личный кабинет пользователя</h2>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Электронный адрес</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              value={email}
+              placeholder="Введите e-mail"
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Пароль</Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              value={password}
+              placeholder="Введите пароль"
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group> */}
+          <Button variant="primary" type="submit">
+            Войти
+          </Button>
+        </Form>
+      </LoginContainer>
+      <Button variant="primary" type="button" onClick={handleClick}>
+        Primary
+      </Button>
+    </>
   );
 }
 
