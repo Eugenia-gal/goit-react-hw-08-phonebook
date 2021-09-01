@@ -15,7 +15,7 @@ const LoginView = lazy(() => import('Views/LoginView'));
 const ContactsView = lazy(() => import('Views/ContactsView/ContactsView'));
 
 function App() {
-  const isRefreshing = useSelector(authSelectors.getIsFetchingCurrent);
+  const isRefreshing = useSelector(authSelectors.getIsRefreshingCurrent);
   const dispatch = useDispatch();
 
   useEffect(() => {
