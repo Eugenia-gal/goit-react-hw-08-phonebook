@@ -1,14 +1,14 @@
 import { Toaster } from 'react-hot-toast';
 import { useEffect, lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Switch, Redirect } from 'react-router-dom';
 import Container from 'Components/Container';
 import AppBar from 'Components/AppBar/AppBar';
-import { Switch } from 'react-router-dom';
 import operations from 'redux/Authorization/auth-operations';
 import authSelectors from './redux/Authorization/auth-selectors';
-import './App.css';
 import PrivateRoute from 'Components/Routes/PrivateRoute';
 import PublicRoute from 'Components/Routes/PublicRoute';
+import './App.css';
 
 const RegisterView = lazy(() => import('Views/RegisterView'));
 const LoginView = lazy(() => import('Views/LoginView'));
@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(operations.refreshUser);
+    dispatch(operations.refreshUser());
   }, [dispatch]);
 
   return (
@@ -31,7 +31,10 @@ function App() {
           <AppBar />
           <Switch>
             <Suspense fallback={<p>Загружаем...</p>}>
-              <PublicRoute exact path="/register" restricted>
+              <PublicRoute exact path="/">
+                <Redirect from="/" to="/login" />
+              </PublicRoute>
+              <PublicRoute path="/register" restricted>
                 <RegisterView />
               </PublicRoute>
               <PublicRoute
