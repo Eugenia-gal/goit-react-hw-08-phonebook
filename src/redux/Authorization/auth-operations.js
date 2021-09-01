@@ -28,6 +28,7 @@ const logIn = createAsyncThunk('auth/login', async userDetails => {
   try {
     const { data } = await axios.post('/users/login', userDetails);
     token.set(data.token);
+    toast.success('Вы успешно вошли!');
     return data;
   } catch (error) {
     console.log(error.message);
@@ -49,7 +50,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   }
 });
 
-const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+const refreshUser = createAsyncThunk('users/current', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   const persistedToken = state.auth.token;
 
