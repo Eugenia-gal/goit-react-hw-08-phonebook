@@ -48,10 +48,10 @@ const contactsSlice = createSlice({
       error: error.message,
     }),
     [deleteContact.fulfilled]: (state, { payload }) => {
-      toast.success(`Контакт ${payload.name} удален`);
+      toast.success(`Контакт удален`);
       return {
         ...state,
-        items: state.items.filter(contact => contact.id !== payload.id),
+        items: state.items.filter(contact => contact.id !== payload),
         status: null,
         error: null,
       };
