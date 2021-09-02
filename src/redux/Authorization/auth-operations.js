@@ -17,7 +17,7 @@ const register = createAsyncThunk('auth/register', async userDetails => {
   try {
     const { data } = await axios.post('/users/signup', userDetails);
     token.set(data.token);
-    toast.success('Вы успешно зарегистрировались!');
+    toast.success('You have successfully registered!');
     return data;
   } catch (error) {
     console.log(error.message);
@@ -28,23 +28,18 @@ const logIn = createAsyncThunk('auth/login', async userDetails => {
   try {
     const { data } = await axios.post('/users/login', userDetails);
     token.set(data.token);
-    toast.success('Вы успешно вошли!');
+    toast.success('You are successfully logged in!');
     return data;
   } catch (error) {
     console.log(error.message);
   }
 });
 
-/*
- * POST @ /users/logout
- * headers: Authorization: Bearer token
- * После успешного логаута, удаляем токен из HTTP-заголовка
- */
 const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.post('/users/logout');
     token.unset();
-    toast.success('До новых встреч!');
+    toast.success('See you later!');
   } catch (error) {
     console.log(error.message);
   }

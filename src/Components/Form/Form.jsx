@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/phonebook/phonebook-operations';
 import CustomForm from './Form.styled';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-export default function Form() {
+export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -33,13 +35,50 @@ export default function Form() {
 
   return (
     <CustomForm onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          type="name"
+          name="name"
+          id="name"
+          value={name}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="The name can only consist of letters, apostrophes, dashes and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan, etc."
+          required
+          placeholder="Enter name"
+          onChange={handleChange}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Phone Number</Form.Label>
+        <Form.Control
+          type="number"
+          name="number"
+          id="number"
+          value={number}
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          placeholder="Enter phone number"
+          onChange={handleChange}
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Add Contact
+      </Button>
+    </CustomForm>
+  );
+}
+
+/* <CustomForm onSubmit={handleSubmit}>
       <label htmlFor="name">Имя</label>
       <input
         type="text"
         name="name"
         id="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+        title="The name can only consist of letters, apostrophes, dashes and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan, etc."
         required
         value={name}
         onChange={handleChange}
@@ -51,12 +90,10 @@ export default function Form() {
         name="number"
         id="number"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
         value={number}
         onChange={handleChange}
       />
       <button type="submit">Сохранить контакт</button>
-    </CustomForm>
-  );
-}
+    </CustomForm> */

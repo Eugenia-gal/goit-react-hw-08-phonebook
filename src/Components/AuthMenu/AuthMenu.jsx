@@ -1,10 +1,10 @@
-import CustomNavLink from './AuthMenu.styled';
+import { CustomNavLink, CustomContainer } from './AuthMenu.styled';
 
 export default function AuthNav() {
   return (
-    <div>
-      <CustomNavLink to="/register">Регистрация</CustomNavLink>
-      <CustomNavLink to="/login">Логин</CustomNavLink>
-    </div>
+    <CustomContainer>
+      <CustomNavLink to="/register">Registration</CustomNavLink>
+      <CustomNavLink to="/login">Log In</CustomNavLink>
+    </CustomContainer>
   );
 }

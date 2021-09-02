@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import { deleteContact } from 'redux/phonebook/phonebook-operations';
 import ListContactEl from './ContactItem.styled';
+import Button from 'react-bootstrap/Button';
+import { BsTrash } from 'react-icons/bs';
 
 function ContactItem({ contact }) {
   const [isDeleting, setIsDeleting] = useState(false);
@@ -17,13 +19,13 @@ function ContactItem({ contact }) {
       <span>
         {contact.name}: {contact.number}
       </span>
-      <button type="button" onClick={handleDelete}>
+      <Button type="button" variant="warning" onClick={handleDelete}>
         {isDeleting ? (
           <Loader type="Bars" color="#000000" height={12} width={12} />
         ) : (
-          'Удалить'
+          <BsTrash size="1.5em" />
         )}
-      </button>
+      </Button>
     </ListContactEl>
   );
 }

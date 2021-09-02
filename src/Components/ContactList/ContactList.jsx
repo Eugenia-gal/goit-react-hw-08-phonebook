@@ -25,7 +25,7 @@ export default function ContactList() {
       {status === 'loading' && <Loader color="#757575" />}
       {status === 'error' && (
         <p>
-          <b>Упс...что-то пошло не так: </b>
+          <b>Ooops...something went wrong: </b>
           {error}
         </p>
       )}

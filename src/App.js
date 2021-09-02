@@ -33,6 +33,9 @@ function App() {
             <Suspense fallback={<p>Загружаем...</p>}>
               <PublicRoute exact path="/">
                 <Redirect from="/" to="/login" />
+                <PublicRoute>
+                  <Redirect to="/login" />
+                </PublicRoute>
               </PublicRoute>
               <PublicRoute path="/register" restricted>
                 <RegisterView />

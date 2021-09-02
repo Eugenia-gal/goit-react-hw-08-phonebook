@@ -1,16 +1,24 @@
 import styled from '@emotion/styled/macro';
 import { NavLink } from 'react-router-dom';
 
-const CustomNavLink = styled(NavLink)`
+export const CustomContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+`;
+
+export const CustomNavLink = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   padding: 12px;
   font-weight: 700;
-  color: #2a363b;
+  font-size: 20px;
+  color: #ffffff;
 
+  &:hover {
+    color: #e0e0e0;
+  }
   &.active {
-    color: #006891;
+    color: #d9e66b;
   }
 `;
-
-export default CustomNavLink;

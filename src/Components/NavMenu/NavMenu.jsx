@@ -1,13 +1,17 @@
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/Authorization/auth-selectors';
-import { CustomNavLink } from './NavMenu.styled';
+import { CustomNavLink, Invitation, CustomNav } from './NavMenu.styled';
 
 const NavMenu = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
-    <nav>
-      {isLoggedIn && <CustomNavLink to="/contacts">Контакты</CustomNavLink>}
-    </nav>
+    <CustomNav>
+      {isLoggedIn ? (
+        <CustomNavLink to="/contacts">My Phonebook</CustomNavLink>
+      ) : (
+        <Invitation>Remember people not numbers!</Invitation>
+      )}
+    </CustomNav>
   );
 };
 
