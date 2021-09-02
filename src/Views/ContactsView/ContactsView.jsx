@@ -2,7 +2,7 @@ import React from 'react';
 import ContactForm from 'Components/Form';
 import ContactList from 'Components/ContactList';
 import Filter from 'Components/Filter';
-import { Wrapper, Invitation, SideBar } from './ContactsView.styled';
+import { Wrapper, Invitation } from './ContactsView.styled';
 
 function ContactsView() {
   return (

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/Authorization/auth-operations';
+import { toast } from 'react-hot-toast';
 import {
   LoginContainer,
   CustomButton,
@@ -31,6 +32,10 @@ function LoginView() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (email === '' || password === '') {
+      toast.error('Enter all fields please');
+      return;
+    }
     dispatch(authOperations.logIn({ email, password }));
     setEmail('');
     setPassword('');
@@ -68,7 +73,7 @@ function LoginView() {
           Log In
         </Button>
       </CustomForm>
-      <CustomStrong>or register if you don't have account</CustomStrong>
+      <CustomStrong>or register if you don't have an account</CustomStrong>
       <CustomButton variant="primary" type="button" onClick={handleClick}>
         Registration
       </CustomButton>
@@ -77,31 +82,3 @@ function LoginView() {
 }
 
 export default LoginView;
-
-/* <CustomForm
-        onSubmit={handleSubmit}
-        // autoComplete="off"
-      >
-        <h2>Вход в личный кабинет пользователя</h2>
-        <LoginField>
-          Почта
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </LoginField>
-
-        <LoginField>
-          Пароль
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </LoginField>
-
-        <button type="submit">Войти</button>
-      </CustomForm> */

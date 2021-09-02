@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-hot-toast';
 import authOperations from 'redux/Authorization/auth-operations';
 import {
   RegisterContainer,
@@ -30,6 +31,10 @@ function RegisterView() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (email === '' || password === '' || name === '') {
+      toast.error('Enter all fields please');
+      return;
+    }
     const userDetails = { name, email, password };
     dispatch(authOperations.register(userDetails));
     setName('');
@@ -42,7 +47,7 @@ function RegisterView() {
       <CustomForm onSubmit={handleSubmit}>
         <Invitation>Welcome to the registration page!</Invitation>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="name"

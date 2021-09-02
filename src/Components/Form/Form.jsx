@@ -70,30 +70,3 @@ export default function ContactForm() {
     </CustomForm>
   );
 }
-
-/* <CustomForm onSubmit={handleSubmit}>
-      <label htmlFor="name">Имя</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="The name can only consist of letters, apostrophes, dashes and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan, etc."
-        required
-        value={name}
-        onChange={handleChange}
-      />
-      <label htmlFor="number">Телефон</label>
-
-      <input
-        type="text"
-        name="number"
-        id="number"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-        value={number}
-        onChange={handleChange}
-      />
-      <button type="submit">Сохранить контакт</button>
-    </CustomForm> */

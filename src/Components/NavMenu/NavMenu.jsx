@@ -9,7 +9,7 @@ const NavMenu = () => {
       {isLoggedIn ? (
         <CustomNavLink to="/contacts">My Phonebook</CustomNavLink>
       ) : (
-        <Invitation>Remember people not numbers!</Invitation>
+        <Invitation>Remember people, not numbers!</Invitation>
       )}
     </CustomNav>
   );

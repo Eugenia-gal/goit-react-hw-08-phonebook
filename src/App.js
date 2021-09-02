@@ -8,7 +8,6 @@ import operations from 'redux/Authorization/auth-operations';
 import authSelectors from './redux/Authorization/auth-selectors';
 import PrivateRoute from 'Components/Routes/PrivateRoute';
 import PublicRoute from 'Components/Routes/PublicRoute';
-import './App.css';
 
 const RegisterView = lazy(() => import('Views/RegisterView'));
 const LoginView = lazy(() => import('Views/LoginView'));
@@ -31,13 +30,10 @@ function App() {
           <AppBar />
           <Switch>
             <Suspense fallback={<p>Загружаем...</p>}>
-              <PublicRoute exact path="/">
+              <PublicRoute path="/">
                 <Redirect from="/" to="/login" />
-                <PublicRoute>
-                  <Redirect to="/login" />
-                </PublicRoute>
               </PublicRoute>
-              <PublicRoute path="/register" restricted>
+              <PublicRoute exact path="/register" restricted>
                 <RegisterView />
               </PublicRoute>
               <PublicRoute
@@ -48,7 +44,7 @@ function App() {
               >
                 <LoginView />
               </PublicRoute>
-              <PrivateRoute path="/contacts" redirectTo="/login">
+              <PrivateRoute exact path="/contacts" redirectTo="/login">
                 <ContactsView />
               </PrivateRoute>
             </Suspense>
